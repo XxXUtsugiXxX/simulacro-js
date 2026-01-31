@@ -10,7 +10,14 @@
 <body onload="checkSession('user')" class="container mt-4">
 
   <h2>Bienvenido al Menú</h2>
+  <div class="d-flex justify-content-between mb-3">
+  <button class="btn btn-primary" onclick="window.location.href='pedidos.html'">
+    Ver mis pedidos
+  </button>
   <button class="btn btn-danger" onclick="logout()">Cerrar Sesión</button>
+</div>
+
+  
 
     <div id="productList" class="row mt-3">
     <!-- Aquí se mostrarán los productos -->

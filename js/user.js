@@ -1,3 +1,4 @@
+const ORDER_API = "http://localhost:3000/orders";
 const API_URL = "http://localhost:3000/products";
 const productList = document.getElementById("productList");
 
@@ -38,8 +39,47 @@ async function loadProducts() {
 }
 
 // Función para agregar producto al pedido (la implementaremos después)
-function addToOrder(productId) {
-    alert(`Producto ${productId} agregado a pedido`)
+async function addToOrder(productId) {
+    const session = JSON.parse(localStorage.getItem("session"));
+    const userId = session?.id;
+        // Buscar el producto por ID
+    const productResponse = await fetch(`http://localhost:3000/products/${productId}`);
+    const product = await productResponse.json();
+
+
+  if (!userId) {
+    alert("Sesión no encontrada.");
+    return;
+  }
+
+  try {
+    // Crear pedido con el producto completo
+    const response = await fetch("http://localhost:3000/orders", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        userId: product.id,
+        products: [
+          {
+            id: product.id,
+            name: product.name,
+            price: product.price
+          }
+        ],
+        status: "pending"
+      })
+    });
+
+    if (!response.ok) throw new Error("Error en la respuesta del servidor");
+
+    const newOrder = await response.json();
+    alert(`✅ Pedido creado (#${newOrder.id}) con ${product.name}`);
+  } catch (error) {
+    console.error("Error creando pedido:", error);
+    alert("Error al crear pedido.");
+  }
 }
 
+
+// checkSession("user");
 loadProducts();

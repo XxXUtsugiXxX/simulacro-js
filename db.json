@@ -30,5 +30,78 @@
       "price": 12000
     }
   ],
-  "orders": []
+  "orders": [
+    {
+      "id": "570d",
+      "userId": "1",
+      "products": [
+        {
+          "id": "1",
+          "name": "Hamburguesa",
+          "price": 15000
+        }
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "af38",
+      "userId": "2",
+      "products": [
+        {
+          "id": "2",
+          "name": "Pizza",
+          "price": 20000
+        }
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "f8f0",
+      "userId": "3",
+      "products": [
+        {
+          "id": "3",
+          "name": "Perro caliente",
+          "price": 12000
+        }
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "ed28",
+      "userId": "1",
+      "products": [
+        {
+          "id": "1",
+          "name": "Hamburguesa",
+          "price": 15000
+        }
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "a5f3",
+      "userId": "3",
+      "products": [
+        {
+          "id": "3",
+          "name": "Perro caliente",
+          "price": 12000
+        }
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "d2f6",
+      "userId": "2",
+      "products": [
+        {
+          "id": "2",
+          "name": "Pizza",
+          "price": 20000
+        }
+      ],
+      "status": "pending"
+    }
+  ]
 }
