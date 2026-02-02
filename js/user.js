@@ -24,10 +24,10 @@ async function loadProducts() {
                 <div class="card-body"> 
                     <h5 class="card-title">${product.name}</h5> 
                     <p class="card-text">Precio: $${product.price}</p> 
-                    <button class="btn btn-primary w-100" onclick="addToOrder(${product.id})"> 
-                Agregar al pedido 
-            </button>
-            </div> 
+                    <button class="btn btn-primary w-100" onclick="addToOrder(${product.id})">
+                    Agregar al pedido
+                    </button>
+                </div> 
             </div> `;
             
             productList.appendChild(card);
@@ -47,6 +47,7 @@ async function addToOrder(productId) {
     const product = await productResponse.json();
 
 
+
   if (!userId) {
     alert("Sesión no encontrada.");
     return;
@@ -58,7 +59,7 @@ async function addToOrder(productId) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        userId: product.id,
+        userId: userId,
         products: [
           {
             id: product.id,
